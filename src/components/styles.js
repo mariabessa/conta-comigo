@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
+import * as Font from 'expo-font';
+
 import Constants from 'expo-constants';
 import {View, Image, Text, ImageBackground} from 'react-native';
 
@@ -7,6 +9,7 @@ const statusBarHeight = Constants.statusBarHeight;
 
 
 export const colors = {
+    violet300: '#847689',
     violet600: '#610F7F',
     violet900: '#310840',
     offWhite: '#FFFFDF',
@@ -26,7 +29,6 @@ export default StyleSheet.create({
   
   export const StyleContainer = styled.View`
     flex: 1;
-    padding: 25px;
-    padding-top: ${statusBarHeight + 10}px;
     background-color: ${colors.violet600};
+    justify-content: 'center';
 `;

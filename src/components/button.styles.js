@@ -12,12 +12,14 @@ export const StyledButton = styled.TouchableOpacity`
   height: 50px;
   border-radius: 16px;
 
+
 `;
 
 // Estilização do texto dentro do botão
 export const ButtonText = styled.Text`
   color: ${colors.violet900};
   text-align: center;
-  font-family: 'Lato-Light';
+  margin-right: 16px;
+  font-family: 'Lato-Medium';
 `;
 

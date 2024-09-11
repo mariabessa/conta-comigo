@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import axios from 'axios'; // Vamos usar axios para fazer a requisição, você pode instalar com: npm install axios
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import axios from 'axios'; 
+import { colors } from './styles';
+
+const { pink, violet300, violet900, white  } = colors;
 
 const GroupCard = () => {
   const [groups, setGroups] = useState([]);
@@ -15,7 +18,7 @@ const GroupCard = () => {
       ];
       setGroups(mockedGroups);
       // try {
-      //   const response = await axios.get('https://api.example.com/groups'); // Substitua pelo seu endpoint de grupos
+      //   const response = await axios.get(''); 
       //   setGroups(response.data);
       // } catch (error) {
       //   console.error('Erro ao buscar os grupos:', error);
@@ -28,10 +31,13 @@ const GroupCard = () => {
   return (
     <ScrollView horizontal style={styles.container}>
       {groups.map((group) => (
-        <View key={group.id} style={styles.groupCard}>
-          <Text style={styles.groupTitle}>{group.name}</Text>
+        <TouchableOpacity key={group.id} style={styles.groupCard}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.groupTitle}>{group.name}</Text>
+            <Image source={require('../assets/images/arrow.png')} style={styles.icon} />
+          </View>
           <Text style={styles.groupDescription}>{group.description}</Text>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );
@@ -53,15 +59,23 @@ const styles = StyleSheet.create({
     elevation: 5,
     width: 150,
   },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   groupTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#4a4a4a',
+    fontFamily: 'Poppins-Medium',
+    color: violet900,
     marginBottom: 5,
+    marginRight: 15,
+
   },
   groupDescription: {
     fontSize: 14,
-    color: '#7f8c8d',
+    paddingTop: 28,
+    color: violet300,
   },
 });
 

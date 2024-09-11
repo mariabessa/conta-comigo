@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { colors } from './styles';
 
-const { pink  } = colors;
+const { pink, violet900, violet300  } = colors;
 
 // Componente para a lista de despesas recentes
 const ExpenseList = () => {
@@ -11,9 +11,9 @@ const ExpenseList = () => {
   useEffect(() => {
       // Dados mocados de despesas recentes
       const mockedExpenses = [
-        { id: 1, name: 'Hamburgueria NoPonto', amount: '-R$ 20,00', category: 'Janta', date: '18/08/2024' },
-        { id: 2, name: 'Capina do lote da casa', amount: '-R$ 15,00', category: 'Capinudos', date: '17/08/2024' },
-        { id: 3, name: 'Supermercado', amount: '-R$ 200,00', category: 'Compras', date: '16/08/2024' },
+        { id: 1, name: 'Hamburgueria NoPonto', amount: '- R$ 20,00', category: 'Janta', date: '18/08/2024' },
+        { id: 2, name: 'Capina do lote da casa', amount: '- R$ 15,00', category: 'Capinudos', date: '17/08/2024' },
+        { id: 3, name: 'Supermercado', amount: '- R$ 200,00', category: 'Compras', date: '16/08/2024' },
       ];
       setExpenses(mockedExpenses);
   }, []);
@@ -21,17 +21,19 @@ const ExpenseList = () => {
   return (
     <ScrollView style={styles.container}>
       {expenses.map((expense) => (
-        <View key={expense.id} style={styles.expenseItem}>
-          <View style={styles.row}>
+        <TouchableOpacity key={expense.id} style={styles.expenseItem}>
+        <View style={styles.row}>
             <Text style={styles.expenseName}>{expense.name}</Text>
-            
-            <Text style={styles.expenseAmount}>{expense.amount}</Text>
-          </View>
+            <Image source={require('../assets/images/arrow.png')} style={styles.icon} />
+
+        </View>
+        <Text style={styles.expenseAmount}>{expense.amount}</Text>
+        
           <View style={styles.row}>
             <Text style={styles.expenseCategory}>{expense.category}</Text>
             <Text style={styles.expenseDate}>{expense.date}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );
@@ -39,7 +41,9 @@ const ExpenseList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 20,
+    marginBottom: 80,
+    marginHorizontal: 10,
+    marginRight: 20,
   },
   expenseItem: {
     backgroundColor: '#fff',
@@ -58,21 +62,23 @@ const styles = StyleSheet.create({
   expenseName: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#4a4a4a',
+    fontFamily: 'Lato-Regular',
+    color: violet900,
   },
   expenseAmount: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'Lato-Regular',
     color: pink,
     marginTop: 10,
+    paddingBottom: 36,
   },
   expenseCategory: {
     fontSize: 14,
-    color: '#7f8c8d',
+    color: violet300,
   },
   expenseDate: {
     fontSize: 14,
-    color: '#7f8c8d',
+    color: violet300,
   },
 });
 

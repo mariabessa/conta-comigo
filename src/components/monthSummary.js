@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios'; // Se você não estiver usando axios, substitua pelo método de requisição adequado
 import { colors } from './styles';
 
-const { pink, violet900, white  } = colors;
+const { pink, violet300, violet900, white  } = colors;
 
 const MonthSummary = () => {
   const [summary, setSummary] = useState({
@@ -31,22 +31,23 @@ const MonthSummary = () => {
   }, []);
 
   return (
-    <View style={styles.box}>
+    <TouchableOpacity style={styles.box}>
       <View style={styles.row}>
         <Text style={styles.title}>Saídas do mês</Text>
         <Image source={require('../assets/images/Vector.png')} style={styles.icon} />
       </View>
       <Text style={styles.value}>R$ {summary.total.toFixed(2)}</Text>
       <Text style={styles.subText}>Última atualização {summary.lastUpdate}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   box: {
     backgroundColor: white,
-    borderRadius: 10,
+    borderRadius: 16,
     padding: 20,
+    marginHorizontal: 10,
     marginBottom: 20,
     shadowColor: '#000',
     shadowOpacity: 0.1,
@@ -62,22 +63,26 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: violet900,
+    fontFamily: 'Poppins-Medium',
+    marginBottom: 32,
   },
   icon: {
-    width: 24, // Defina o tamanho da imagem
-    height: 24, // Defina o tamanho da imagem
+    width: 24, 
+    height: 24, 
     resizeMode: 'contain',
   },
   value: {
-    fontSize: 32,
+    fontSize: 20,
     fontWeight: 'bold',
     color: pink,
+    fontFamily: 'Poppins-SemiBold',
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 4,
   },
   subText: {
-    fontSize: 14,
-    color: '#7f8c8d',
+    fontSize: 12,
+    fontFamily: 'Lato-Light',
+    color: violet300,
   },
 });
 

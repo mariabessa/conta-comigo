@@ -1,14 +1,20 @@
 
 import React from 'react';
 import Header from '../../components/header';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { ImageBackground, ScrollView, StyleSheet, Text } from 'react-native';
 import MonthSummary from '../../components/monthSummary';
 import GroupCard from '../../components/groupCard';
 import ExpenseList from '../../components/expenseList';
+import { colors } from '../../components/styles';
 
+const { violet600, violet900  } = colors;
 const home = () => {
 
   return(
+    <ImageBackground 
+    source={require('../../assets/images/bg.png')}  // Caminho da imagem de fundo
+    style={styles.backgroundImage}  // Estilo da imagem de fundo
+  >
     <ScrollView style={styles.container}>
       <Header />
 
@@ -23,37 +29,31 @@ const home = () => {
       <ExpenseList /> 
 
     </ScrollView>
+    </ImageBackground>
 
   );
 };
 
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',  // Ajusta a imagem para cobrir todo o espaço disponível
+  },
   container: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
     paddingTop: 80,
-    paddingLeft: 10,
-    paddingRight: 5,
+    paddingLeft: 15,
+
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#4a4a4a',
+    color: violet900,
+    fontFamily: 'Lato-Light',
     marginBottom: 10,
   },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 10,
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 10,
-  },
+
 });
 
 
