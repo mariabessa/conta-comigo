@@ -1,16 +1,25 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Login from './login';
+import { Slot, useRouter } from "expo-router";
+import {View, Text, ActivityIndicator} from 'react-native';
+import React, { useContext, useState } from 'react';
+
+
 
 export default function RootLayout() {
-  const Stack = createStackNavigator();
+  const router = useRouter();
+  
+  
 
   return (
-    <NavigationContainer independent={true}>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+
+      <View style={styles.container}>
+        <Slot/>
+      </View>
+
   );
-}
+} 
+
+const styles = {
+  container: {
+  flex: 1,  
+  },
+};

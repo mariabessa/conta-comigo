@@ -10,7 +10,8 @@ export const colors = {
     violet600: '#610F7F',
     violet900: '#310840',
     offWhite: '#FFFFDF',
-    white: '#FFFFFF'
+    white: '#F4F4F4',
+    pink: '#CC4162',
 };
 
 
