@@ -4,7 +4,6 @@ import { colors } from './styles';
 
 const { pink, violet900, violet300  } = colors;
 
-// Componente para a lista de despesas recentes
 const ExpenseList = () => {
   const [expenses, setExpenses] = useState([]);
 

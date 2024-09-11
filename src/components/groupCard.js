@@ -8,7 +8,6 @@ const { pink, violet300, violet900, white  } = colors;
 const GroupCard = () => {
   const [groups, setGroups] = useState([]);
 
-  // Fazendo a requisição
   useEffect(() => {
     const fetchGroups = async () => {
       const mockedGroups = [
@@ -26,7 +25,7 @@ const GroupCard = () => {
     };
 
     fetchGroups();
-  }, []); // Executa a requisição apenas uma vez ao montar o componente
+  }, []); 
 
   return (
     <ScrollView horizontal style={styles.container}>

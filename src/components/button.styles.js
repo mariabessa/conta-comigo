@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 import { colors } from './styles';
 const { botaoCor, botaoTextoCor } = colors;
 
-// Estilização do botão utilizando styled-components
 export const StyledButton = styled.TouchableOpacity`
   background-color: ${colors.white};
   margin-bottom: 16px;
@@ -15,7 +14,6 @@ export const StyledButton = styled.TouchableOpacity`
 
 `;
 
-// Estilização do texto dentro do botão
 export const ButtonText = styled.Text`
   color: ${colors.violet900};
   text-align: center;

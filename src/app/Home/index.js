@@ -12,16 +12,14 @@ const home = () => {
 
   return(
     <ImageBackground 
-    source={require('../../assets/images/bg.png')}  // Caminho da imagem de fundo
-    style={styles.backgroundImage}  // Estilo da imagem de fundo
+    source={require('../../assets/images/bg.png')}  
+    style={styles.backgroundImage}  
   >
     <ScrollView style={styles.container}>
       <Header />
 
-      {/* Saídas do Mês */}
       <MonthSummary />
 
-      {/* Grupos */}
       <Text style={styles.sectionTitle}>Grupos</Text>
       <GroupCard /> 
 
@@ -38,7 +36,7 @@ const home = () => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover',  // Ajusta a imagem para cobrir todo o espaço disponível
+    resizeMode: 'cover',  
   },
   container: {
     flex: 1,

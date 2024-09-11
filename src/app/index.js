@@ -4,7 +4,7 @@ import { StyleContainer } from '../components/styles';
 import { ButtonText, StyledButton } from '../components/button.styles';
 import Rectangle from '../assets/images/Rectangle.svg';
 import Svg from 'react-native-svg';
-import Logo from './../assets/images/logo.svg'; // Certifique-se de usar o caminho correto
+import Logo from './../assets/images/logo.svg'; 
 import { useRouter } from 'expo-router';
 
 const { height } = Dimensions.get('window');
@@ -19,7 +19,6 @@ const Login = () => {
   return (
     <StyleContainer>
       <View style={styles.container}>
-        {/* <Logo width={153} height={13} /> */}
         <Logo width={153} height={50} style={styles.logo} />
         <Text style={styles.title}>
           Juntos nos momentos, {'\n'} juntos nas contas!
@@ -59,9 +58,9 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     marginBottom: 87,
     textAlign: 'center',
-    textShadowColor: '#000',  // Cor da sombra (preto)
-    textShadowOffset: { width: 2, height: 2 },  // Deslocamento da sombra
-    textShadowRadius: 3,  // Suavização da sombra
+    textShadowColor: '#000',  
+    textShadowOffset: { width: 2, height: 2 }, 
+    textShadowRadius: 3, 
   },
   googleIcon: {
     width: 20,
@@ -69,9 +68,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   button: {
-    flexDirection: 'row',  // Para alinhar o texto e a imagem horizontalmente
-    alignItems: 'center',  // Centralizar verticalmente
-    justifyContent: 'center',  // Centralizar horizontalmente
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'center',  
   },
   waveContainer: {
     position: 'absolute',
